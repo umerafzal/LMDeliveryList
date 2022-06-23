@@ -61,6 +61,7 @@
 		4A3EFF7A2864113000BCA4BC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4A3EFF7D2864342800BCA4BC /* Delivery */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -72,6 +73,29 @@
 				4A3EFF7128640B9300BCA4BC /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4A3EFF7D2864342800BCA4BC /* Delivery */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFF7F2864344A00BCA4BC /* Detail */,
+				4A3EFF7E2864344200BCA4BC /* List */,
+			);
+			path = Delivery;
+			sourceTree = "<group>";
+		};
+		4A3EFF7E2864344200BCA4BC /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		4A3EFF7F2864344A00BCA4BC /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
