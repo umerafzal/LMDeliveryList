@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol DeliveryListRouting {
+
+}
+
+final class DeliveryListRouter: DeliveryListRouting {
+
+}

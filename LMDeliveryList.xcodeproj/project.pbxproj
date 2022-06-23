@@ -14,6 +14,10 @@
 		4A3EFF8B2864352500BCA4BC /* DeliveryListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF8A2864352500BCA4BC /* DeliveryListPresenter.swift */; };
 		4A3EFF8D2864353400BCA4BC /* DeliveryListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF8C2864353400BCA4BC /* DeliveryListRouter.swift */; };
 		4A3EFF912864355800BCA4BC /* DeliveryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF902864355800BCA4BC /* DeliveryListInteractor.swift */; };
+		4A3EFF93286437B000BCA4BC /* Delivery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF92286437B000BCA4BC /* Delivery.swift */; };
+		4A3EFF972864381F00BCA4BC /* DeliveryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF962864381F00BCA4BC /* DeliveryRepository.swift */; };
+		4A3EFF9B28643F8500BCA4BC /* DeliveryWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF9A28643F8500BCA4BC /* DeliveryWebService.swift */; };
+		4A3EFF9D28643F9800BCA4BC /* DeliveryLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF9C28643F9800BCA4BC /* DeliveryLocalService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		4A3EFF8A2864352500BCA4BC /* DeliveryListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListPresenter.swift; sourceTree = "<group>"; };
 		4A3EFF8C2864353400BCA4BC /* DeliveryListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListRouter.swift; sourceTree = "<group>"; };
 		4A3EFF902864355800BCA4BC /* DeliveryListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListInteractor.swift; sourceTree = "<group>"; };
+		4A3EFF92286437B000BCA4BC /* Delivery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delivery.swift; sourceTree = "<group>"; };
+		4A3EFF962864381F00BCA4BC /* DeliveryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRepository.swift; sourceTree = "<group>"; };
+		4A3EFF9A28643F8500BCA4BC /* DeliveryWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryWebService.swift; sourceTree = "<group>"; };
+		4A3EFF9C28643F9800BCA4BC /* DeliveryLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryLocalService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,8 @@
 			children = (
 				4A3EFF7B2864114000BCA4BC /* Resources */,
 				4A3EFF7A2864113000BCA4BC /* Modules */,
+				4A3EFF94286437F800BCA4BC /* Repository */,
+				4A3EFF9828643F5800BCA4BC /* Services */,
 				4A3EFF6628640B9100BCA4BC /* AppDelegate.swift */,
 				4A3EFF7428640B9300BCA4BC /* Info.plist */,
 			);
@@ -86,8 +96,8 @@
 		4A3EFF7D2864342800BCA4BC /* Delivery */ = {
 			isa = PBXGroup;
 			children = (
-				4A3EFF7F2864344A00BCA4BC /* Detail */,
 				4A3EFF7E2864344200BCA4BC /* List */,
+				4A3EFF7F2864344A00BCA4BC /* Detail */,
 			);
 			path = Delivery;
 			sourceTree = "<group>";
@@ -118,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3EFF882864350600BCA4BC /* DeliveryListViewController.swift */,
+				4A3EFF92286437B000BCA4BC /* Delivery.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +183,39 @@
 			children = (
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		4A3EFF94286437F800BCA4BC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFF952864380700BCA4BC /* Delivery */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		4A3EFF952864380700BCA4BC /* Delivery */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFF962864381F00BCA4BC /* DeliveryRepository.swift */,
+			);
+			path = Delivery;
+			sourceTree = "<group>";
+		};
+		4A3EFF9828643F5800BCA4BC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFF9928643F6700BCA4BC /* Delivery */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4A3EFF9928643F6700BCA4BC /* Delivery */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFF9A28643F8500BCA4BC /* DeliveryWebService.swift */,
+				4A3EFF9C28643F9800BCA4BC /* DeliveryLocalService.swift */,
+			);
+			path = Delivery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,9 +289,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A3EFF8D2864353400BCA4BC /* DeliveryListRouter.swift in Sources */,
+				4A3EFF93286437B000BCA4BC /* Delivery.swift in Sources */,
+				4A3EFF9D28643F9800BCA4BC /* DeliveryLocalService.swift in Sources */,
 				4A3EFF892864350600BCA4BC /* DeliveryListViewController.swift in Sources */,
 				4A3EFF6728640B9100BCA4BC /* AppDelegate.swift in Sources */,
+				4A3EFF972864381F00BCA4BC /* DeliveryRepository.swift in Sources */,
 				4A3EFF8B2864352500BCA4BC /* DeliveryListPresenter.swift in Sources */,
+				4A3EFF9B28643F8500BCA4BC /* DeliveryWebService.swift in Sources */,
 				4A3EFF912864355800BCA4BC /* DeliveryListInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
