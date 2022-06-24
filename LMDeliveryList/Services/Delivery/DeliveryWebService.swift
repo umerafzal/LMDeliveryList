@@ -9,9 +9,14 @@ import Foundation
 
 final class DeliveryWebService: DeliveryRepository {
   private let client: APIClient
+  private let mapper: DeliveryDomainModelMapping
 
-  init(client: APIClient) {
+  init(
+    client: APIClient
+    deliveryDomainModelMapper: DeliveryDomainModelMapping
+  ) {
     self.client = client
+    self.mapper = deliveryDomainModelMapper
   }
   
   func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
