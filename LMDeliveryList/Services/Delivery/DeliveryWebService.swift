@@ -21,12 +21,23 @@ final class DeliveryWebService: DeliveryRepository {
   
   func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
     let resource = DeliveryResource.fetchDeliveries(offset: offset, limit: limit)
-    self.client.executeRequest(parameters: resource) { result in
+    self.client.executeRequest(parameters: resource) { [unowned self] result in
       switch result {
       case .success(let response):
-        print(response)
+        guard let data = response.jsonResponse else {
+          return completion(.failure(NSError()))
+        }
+        let deliveriesDTOs: [DeliveryResponseDTO]
+        do {
+          deliveriesDTOs = try JSONDecoder().decode([DeliveryResponseDTO].self, from: data)
+          let deliveries = self.mapper.map(deliveries: deliveriesDTOs)
+          completion(.success(deliveries))
+        }
+        catch let error {
+          completion(.failure(error))
+        }
       case .failure(let error):
-        print(error)
+        completion(.failure(error))
       }
     }
   }
