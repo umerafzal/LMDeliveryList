@@ -58,7 +58,7 @@ extension DeliveryListViewController: DeliveryListView {
   }
 
   func showError(error: Error) {
-
+    // show error
   }
 }
 
@@ -68,9 +68,16 @@ extension DeliveryListViewController: UITableViewDataSource, UITableViewDelegate
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "asdsadasdas")
-    cell.backgroundColor = .blue
-    cell.textLabel?.text = self.deliveries[indexPath.row].id
+    let cell = DeliveryCell(style: .default, reuseIdentifier: "\(DeliveryCell.self)")
+    cell.update(model: DeliveryViewModel(
+      id: self.deliveries[indexPath.row].id,
+      from: self.deliveries[indexPath.row].route.from,
+      to: self.deliveries[indexPath.row].route.to,
+      imageURL: self.deliveries[indexPath.row].imageURL,
+      isFavorite: self.deliveries[indexPath.row].isFavourite)
+    )
     return cell
   }
 }
+
+

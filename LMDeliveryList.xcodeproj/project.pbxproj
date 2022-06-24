@@ -32,6 +32,9 @@
 		4A3EFFC12865D67500BCA4BC /* DeliveryDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFC02865D67500BCA4BC /* DeliveryDatabaseModel.swift */; };
 		4A3EFFC32865DD1100BCA4BC /* DeliveryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFC22865DD1100BCA4BC /* DeliveryDAO.swift */; };
 		4A3EFFC62865F1BE00BCA4BC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFC52865F1BE00BCA4BC /* UIView+Extension.swift */; };
+		4A3EFFC82865F7F200BCA4BC /* DeliveryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFC72865F7F200BCA4BC /* DeliveryCell.swift */; };
+		4A3EFFCA2865F83500BCA4BC /* DeliveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFC92865F83500BCA4BC /* DeliveryViewModel.swift */; };
+		4A3EFFCC2865F85D00BCA4BC /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFCB2865F85D00BCA4BC /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		4A3EFFC02865D67500BCA4BC /* DeliveryDatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDatabaseModel.swift; sourceTree = "<group>"; };
 		4A3EFFC22865DD1100BCA4BC /* DeliveryDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDAO.swift; sourceTree = "<group>"; };
 		4A3EFFC52865F1BE00BCA4BC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		4A3EFFC72865F7F200BCA4BC /* DeliveryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryCell.swift; sourceTree = "<group>"; };
+		4A3EFFC92865F83500BCA4BC /* DeliveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewModel.swift; sourceTree = "<group>"; };
+		4A3EFFCB2865F85D00BCA4BC /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,8 @@
 			children = (
 				4A3EFF882864350600BCA4BC /* DeliveryListViewController.swift */,
 				4A3EFF92286437B000BCA4BC /* Delivery.swift */,
+				4A3EFFC72865F7F200BCA4BC /* DeliveryCell.swift */,
+				4A3EFFC92865F83500BCA4BC /* DeliveryViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -352,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3EFFC52865F1BE00BCA4BC /* UIView+Extension.swift */,
+				4A3EFFCB2865F85D00BCA4BC /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -428,10 +437,12 @@
 			files = (
 				4A3EFFBF28659D3300BCA4BC /* DeliveryResponse.swift in Sources */,
 				4A3EFFC12865D67500BCA4BC /* DeliveryDatabaseModel.swift in Sources */,
+				4A3EFFCC2865F85D00BCA4BC /* UIImageView+Extension.swift in Sources */,
 				4A3EFF8D2864353400BCA4BC /* DeliveryListRouter.swift in Sources */,
 				4A3EFFAA286550C600BCA4BC /* ApiResponseWrapper.swift in Sources */,
 				4A3EFF93286437B000BCA4BC /* Delivery.swift in Sources */,
 				4A3EFF9D28643F9800BCA4BC /* DeliveryLocalService.swift in Sources */,
+				4A3EFFCA2865F83500BCA4BC /* DeliveryViewModel.swift in Sources */,
 				4A3EFFA228653CE700BCA4BC /* ResourceParameters.swift in Sources */,
 				4A3EFFBA2865803400BCA4BC /* DeliveryMapper.swift in Sources */,
 				4A3EFFA628654FFE00BCA4BC /* RequestEncoder.swift in Sources */,
@@ -444,6 +455,7 @@
 				4A3EFF972864381F00BCA4BC /* DeliveryRepository.swift in Sources */,
 				4A3EFFB32865588E00BCA4BC /* DeliveryListBuilder.swift in Sources */,
 				4A3EFF8B2864352500BCA4BC /* DeliveryListPresenter.swift in Sources */,
+				4A3EFFC82865F7F200BCA4BC /* DeliveryCell.swift in Sources */,
 				4A3EFFB728657CFB00BCA4BC /* DeliveryDTO.swift in Sources */,
 				4A3EFF9B28643F8500BCA4BC /* DeliveryWebService.swift in Sources */,
 				4A3EFF912864355800BCA4BC /* DeliveryListInteractor.swift in Sources */,
