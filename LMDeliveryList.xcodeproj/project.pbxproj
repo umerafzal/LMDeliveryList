@@ -31,6 +31,7 @@
 		4A3EFFBF28659D3300BCA4BC /* DeliveryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFBE28659D3300BCA4BC /* DeliveryResponse.swift */; };
 		4A3EFFC12865D67500BCA4BC /* DeliveryDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFC02865D67500BCA4BC /* DeliveryDatabaseModel.swift */; };
 		4A3EFFC32865DD1100BCA4BC /* DeliveryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFC22865DD1100BCA4BC /* DeliveryDAO.swift */; };
+		4A3EFFC62865F1BE00BCA4BC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFC52865F1BE00BCA4BC /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		4A3EFFBE28659D3300BCA4BC /* DeliveryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryResponse.swift; sourceTree = "<group>"; };
 		4A3EFFC02865D67500BCA4BC /* DeliveryDatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDatabaseModel.swift; sourceTree = "<group>"; };
 		4A3EFFC22865DD1100BCA4BC /* DeliveryDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDAO.swift; sourceTree = "<group>"; };
+		4A3EFFC52865F1BE00BCA4BC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				4A3EFF94286437F800BCA4BC /* Repository */,
 				4A3EFF9828643F5800BCA4BC /* Services */,
 				4A3EFFA028653CAB00BCA4BC /* Network */,
+				4A3EFFC42865F1A900BCA4BC /* Extension */,
 				4A3EFF7428640B9300BCA4BC /* Info.plist */,
 			);
 			path = LMDeliveryList;
@@ -345,6 +348,14 @@
 			path = Persistance;
 			sourceTree = "<group>";
 		};
+		4A3EFFC42865F1A900BCA4BC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFFC52865F1BE00BCA4BC /* UIView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -425,6 +436,7 @@
 				4A3EFFBA2865803400BCA4BC /* DeliveryMapper.swift in Sources */,
 				4A3EFFA628654FFE00BCA4BC /* RequestEncoder.swift in Sources */,
 				4A3EFFB02865568200BCA4BC /* DependencyContainer.swift in Sources */,
+				4A3EFFC62865F1BE00BCA4BC /* UIView+Extension.swift in Sources */,
 				4A3EFFC32865DD1100BCA4BC /* DeliveryDAO.swift in Sources */,
 				4A3EFF9F2865391800BCA4BC /* DeliveryResource.swift in Sources */,
 				4A3EFF892864350600BCA4BC /* DeliveryListViewController.swift in Sources */,

@@ -32,12 +32,12 @@ extension DeliveryListPresenter: DeliveryListPresenting {
   }
 
   func fetchDeleiveries(offset: Int = 0) {
-    interactor.fetchDeliveries(offset: 0) { result in
+    interactor.fetchDeliveries(offset: 0) { [weak self] result in
       switch result {
       case .success(let deliveries):
-        print(deliveries)
+        self?.view?.updateView(deliveries: deliveries)
       case .failure(let error):
-        print(error)
+        self?.view?.showError(error: error)
       }
     }
   }
