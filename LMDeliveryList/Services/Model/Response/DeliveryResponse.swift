@@ -14,17 +14,37 @@ struct DeliveryResponse: Decodable {
   let delivery_deliveryFee: String
   let delivery_sender: DeliveryResponse.Sender
   let delivery_route: DeliveryResponse.Route
+
+  enum DeliveryResponseKeys: String, CodingKey {
+    case delivery_id = "id"
+    case delivery_goodsPicture = "goodsPicture"
+    case delivery_surcharge = "surcharge"
+    case delivery_deliveryFee = "deliveryFee"
+    case delivery_sender = "sender"
+    case delivery_route = "route"
+  }
 }
 
 extension DeliveryResponse {
-  struct Sender: Decodable  {
+  struct Sender: Decodable {
     let delivery_name: String
     let delivery_email: String
     let delivery_phone: String
+
+    private enum SenderKeys: String, CodingKey {
+      case delivery_name = "name"
+      case delivery_email = "email"
+      case delivery_phone = "phone"
+    }
   }
   struct Route: Decodable {
     let delivery_start: String
     let delivery_end: String
+
+    private enum RouteKeys: String, CodingKey {
+      case delivery_start = "start"
+      case delivery_end = "end"
+    }
   }
 }
 
@@ -56,7 +76,6 @@ extension DeliveryResponse: DeliveryDTO {
   var deliveryFee: String {
     delivery_deliveryFee
   }
-
 }
 
 extension DeliveryResponse.Sender: DeliverySenderDTO {
