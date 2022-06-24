@@ -26,6 +26,7 @@
 		4A3EFFAC286550D600BCA4BC /* ApiErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFAB286550D600BCA4BC /* ApiErrorWrapper.swift */; };
 		4A3EFFB02865568200BCA4BC /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFAF2865568200BCA4BC /* DependencyContainer.swift */; };
 		4A3EFFB32865588E00BCA4BC /* DeliveryListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFB22865588E00BCA4BC /* DeliveryListBuilder.swift */; };
+		4A3EFFB728657CFB00BCA4BC /* DeliveryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFB628657CFB00BCA4BC /* DeliveryDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		4A3EFFAB286550D600BCA4BC /* ApiErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorWrapper.swift; sourceTree = "<group>"; };
 		4A3EFFAF2865568200BCA4BC /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		4A3EFFB22865588E00BCA4BC /* DeliveryListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListBuilder.swift; sourceTree = "<group>"; };
+		4A3EFFB628657CFB00BCA4BC /* DeliveryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		4A3EFF9828643F5800BCA4BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4A3EFFB428657CD700BCA4BC /* DTOs */,
 				4A3EFF9928643F6700BCA4BC /* Delivery */,
 			);
 			path = Services;
@@ -288,6 +291,14 @@
 				4A3EFFB22865588E00BCA4BC /* DeliveryListBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		4A3EFFB428657CD700BCA4BC /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFFB628657CFB00BCA4BC /* DeliveryDTO.swift */,
+			);
+			path = DTOs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +384,7 @@
 				4A3EFF972864381F00BCA4BC /* DeliveryRepository.swift in Sources */,
 				4A3EFFB32865588E00BCA4BC /* DeliveryListBuilder.swift in Sources */,
 				4A3EFF8B2864352500BCA4BC /* DeliveryListPresenter.swift in Sources */,
+				4A3EFFB728657CFB00BCA4BC /* DeliveryDTO.swift in Sources */,
 				4A3EFF9B28643F8500BCA4BC /* DeliveryWebService.swift in Sources */,
 				4A3EFF912864355800BCA4BC /* DeliveryListInteractor.swift in Sources */,
 				4A3EFFA4286542C000BCA4BC /* APIClient.swift in Sources */,
