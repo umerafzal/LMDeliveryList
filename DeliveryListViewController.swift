@@ -19,3 +19,9 @@ final class DeliveryListViewController: UIViewController {
     view.backgroundColor = .red
   }
 }
+
+extension DeliveryListViewController: DeliveryListView {
+  func updateView(deliveries: [Delivery]) {
+
+  }
+}

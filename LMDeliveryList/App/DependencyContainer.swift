@@ -12,10 +12,25 @@ typealias FactoryClosure = (DependencyContainer) -> AnyObject
 final class DependencyContainer {
   var services: [String:FactoryClosure] = [:]
 
-  static let shared = DependencyContainer()
+  static let instance = DependencyContainer()
 
   private init() {
+    registerDeliveryDependencies()
+  }
 
+  func registerDeliveryDependencies() {
+    register(type: DeliveryWebService.self) { _ in
+      DeliveryWebService()
+    }
+    register(type: DeliveryLocalService.self) { _ in
+      DeliveryLocalService()
+    }
+    register(type: RemoteFallbackToLocalDeliveryRepository.self) { container in
+      RemoteFallbackToLocalDeliveryRepository(
+        remote: container.resolve(type: DeliveryWebService.self)!,
+        local: container.resolve(type: DeliveryLocalService.self)!
+      )
+    }
   }
 }
 
