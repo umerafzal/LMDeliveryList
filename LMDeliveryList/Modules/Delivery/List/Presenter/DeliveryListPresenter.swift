@@ -35,9 +35,9 @@ extension DeliveryListPresenter: DeliveryListPresenting {
     interactor.fetchDeliveries(offset: 0) { result in
       switch result {
       case .success(let deliveries):
-        ()
+        print(deliveries)
       case .failure(let error):
-        ()
+        print(error)
       }
     }
   }

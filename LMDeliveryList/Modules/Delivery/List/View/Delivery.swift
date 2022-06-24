@@ -12,6 +12,7 @@ struct Delivery {
   let imageURL: String
   let surchargeFee: String
   let deliveryFee: String
+  let isFavourite: Bool
   let sender: Delivery.Sender
   let route: Delivery.Route
 }

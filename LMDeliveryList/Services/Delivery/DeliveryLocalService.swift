@@ -7,8 +7,7 @@
 
 import Foundation
 
-final class DeliveryLocalService: DeliveryRepository {
-  func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
-
+final class DeliveryLocalService: DeliveryService {
+  func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[DeliveryDTO], Error>) -> Void) {
   }
 }

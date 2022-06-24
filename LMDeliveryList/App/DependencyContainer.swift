@@ -39,8 +39,8 @@ final class DependencyContainer {
     }
     register(type: DeliveryWebService.self) { container in
       DeliveryWebService(
-        client: container.resolve(type: APIClient.self)!,
-        deliveryDomainModelMapper: container.resolve(type: DeliveryDomainModelMapping.self)!)
+        client: container.resolve(type: APIClient.self)!
+        )
     }
     register(type: DeliveryLocalService.self) { _ in
       DeliveryLocalService()
@@ -48,8 +48,8 @@ final class DependencyContainer {
   }
 
   private func registerDeliveryRepository() {
-    register(type: RemoteFallbackToLocalDeliveryRepository.self) { container in
-      RemoteFallbackToLocalDeliveryRepository(
+    register(type: DeliveryRepository.self) { container in
+      DeliveryRepositoryImpl(
         remote: container.resolve(type: DeliveryWebService.self)!,
         local: container.resolve(type: DeliveryLocalService.self)!
       )

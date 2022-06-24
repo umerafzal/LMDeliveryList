@@ -28,6 +28,7 @@
 		4A3EFFB32865588E00BCA4BC /* DeliveryListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFB22865588E00BCA4BC /* DeliveryListBuilder.swift */; };
 		4A3EFFB728657CFB00BCA4BC /* DeliveryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFB628657CFB00BCA4BC /* DeliveryDTO.swift */; };
 		4A3EFFBA2865803400BCA4BC /* DeliveryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFB92865803400BCA4BC /* DeliveryMapper.swift */; };
+		4A3EFFBF28659D3300BCA4BC /* DeliveryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFBE28659D3300BCA4BC /* DeliveryResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		4A3EFFB22865588E00BCA4BC /* DeliveryListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryListBuilder.swift; sourceTree = "<group>"; };
 		4A3EFFB628657CFB00BCA4BC /* DeliveryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDTO.swift; sourceTree = "<group>"; };
 		4A3EFFB92865803400BCA4BC /* DeliveryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMapper.swift; sourceTree = "<group>"; };
+		4A3EFFBE28659D3300BCA4BC /* DeliveryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 		4A3EFF9828643F5800BCA4BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4A3EFFBB28659CF700BCA4BC /* Model */,
 				4A3EFFB82865802200BCA4BC /* Mapper */,
 				4A3EFFB428657CD700BCA4BC /* DTOs */,
 				4A3EFF9928643F6700BCA4BC /* Delivery */,
@@ -312,6 +315,30 @@
 			path = Mapper;
 			sourceTree = "<group>";
 		};
+		4A3EFFBB28659CF700BCA4BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFFBD28659D1900BCA4BC /* Persistance */,
+				4A3EFFBC28659D0900BCA4BC /* Response */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A3EFFBC28659D0900BCA4BC /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFFBE28659D3300BCA4BC /* DeliveryResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		4A3EFFBD28659D1900BCA4BC /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -382,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A3EFFBF28659D3300BCA4BC /* DeliveryResponse.swift in Sources */,
 				4A3EFF8D2864353400BCA4BC /* DeliveryListRouter.swift in Sources */,
 				4A3EFFAA286550C600BCA4BC /* ApiResponseWrapper.swift in Sources */,
 				4A3EFF93286437B000BCA4BC /* Delivery.swift in Sources */,

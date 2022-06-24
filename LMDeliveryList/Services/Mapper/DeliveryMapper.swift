@@ -8,18 +8,19 @@
 import Foundation
 
 protocol DeliveryDomainModelMapping {
-  func map(deliveries: [DeliveryResponseDTO]) -> [Delivery]
-  func map(delivery: DeliveryResponseDTO) -> Delivery
+  func map(deliveries: [DeliveryDTO]) -> [Delivery]
+  func map(delivery: DeliveryDTO) -> Delivery
 }
 
 final class DeliveryDomainModelMapper: DeliveryDomainModelMapping {
-  func map(deliveries: [DeliveryResponseDTO]) -> [Delivery] {
+  func map(deliveries: [DeliveryDTO]) -> [Delivery] {
     deliveries.map {
       Delivery(
         id: $0.id,
         imageURL: $0.goodsPicture,
         surchargeFee: $0.surcharge,
         deliveryFee: $0.deliveryFee,
+        isFavourite: false,
         sender: Delivery.Sender(
           name: $0.sender.name,
           email: $0.sender.email,
@@ -33,12 +34,13 @@ final class DeliveryDomainModelMapper: DeliveryDomainModelMapping {
     }
   }
 
-  func map(delivery: DeliveryResponseDTO) -> Delivery {
+  func map(delivery: DeliveryDTO) -> Delivery {
       Delivery(
         id: delivery.id,
         imageURL: delivery.goodsPicture,
         surchargeFee: delivery.surcharge,
         deliveryFee: delivery.deliveryFee,
+        isFavourite: false,
         sender: Delivery.Sender(
           name: delivery.sender.name,
           email: delivery.sender.email,

@@ -14,7 +14,7 @@ protocol DeliveryListBuilding {
 extension DependencyContainer: DeliveryListBuilding {
   func buildDeliveryListScreen() -> DeliveryListViewController {
     let router = DeliveryListRouter()
-    let interactor = DeliveryListInteractor(repository: resolve(type: RemoteFallbackToLocalDeliveryRepository.self)!)
+    let interactor = DeliveryListInteractor(repository: resolve(type: DeliveryRepository.self)!)
     let presenter = DeliveryListPresenter(router: router, interactor: interactor)
     let vc = DeliveryListViewController(presenter: presenter)
     presenter.view = vc

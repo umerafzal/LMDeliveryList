@@ -7,19 +7,15 @@
 
 import Foundation
 
-final class DeliveryWebService: DeliveryRepository {
-  private let client: APIClient
-  private let mapper: DeliveryDomainModelMapping
+final class DeliveryWebService: DeliveryService {
 
-  init(
-    client: APIClient,
-    deliveryDomainModelMapper: DeliveryDomainModelMapping
-  ) {
+  private let client: APIClient
+
+  init(client: APIClient) {
     self.client = client
-    self.mapper = deliveryDomainModelMapper
   }
   
-  func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
+  func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[DeliveryDTO], Error>) -> Void) {
     let resource = DeliveryResource.fetchDeliveries(offset: offset, limit: limit)
     self.client.executeRequest(parameters: resource) { [unowned self] result in
       switch result {
@@ -27,11 +23,9 @@ final class DeliveryWebService: DeliveryRepository {
         guard let data = response.jsonResponse else {
           return completion(.failure(NSError()))
         }
-        let deliveriesDTOs: [DeliveryResponseDTO]
+        let deliveriesDTOs: [DeliveryResponse]
         do {
-          deliveriesDTOs = try JSONDecoder().decode([DeliveryResponseDTO].self, from: data)
-          let deliveries = self.mapper.map(deliveries: deliveriesDTOs)
-          completion(.success(deliveries))
+          deliveriesDTOs = try JSONDecoder().decode([DeliveryResponse].self, from: data)
         }
         catch let error {
           completion(.failure(error))

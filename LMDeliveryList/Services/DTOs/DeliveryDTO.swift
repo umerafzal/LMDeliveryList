@@ -7,24 +7,23 @@
 
 import Foundation
 
-
-struct DeliveryResponseDTO: Decodable {
-  let id: String
-  let goodsPicture: String
-  let surcharge: String
-  let deliveryFee: String
-  let sender: DeliveryResponseDTO.Sender
-  let route: DeliveryResponseDTO.Route
+protocol DeliveryDTO {
+  var id: String { get }
+  var goodsPicture: String { get }
+  var surcharge: String { get }
+  var deliveryFee: String { get }
+  var isFavourite: Bool { get }
+  var sender: DeliverySenderDTO { get }
+  var route: DeliveryRouteDTO { get }
 }
 
-extension DeliveryResponseDTO {
-  struct Sender: Decodable {
-    let name: String
-    let email: String
-    let phone: String
-  }
-  struct Route: Decodable {
-    let start: String
-    let end: String
-  }
+protocol DeliverySenderDTO {
+  var name: String { get }
+  var email: String { get }
+  var phone: String { get }
+}
+
+protocol DeliveryRouteDTO {
+  var start: String { get }
+  var end: String { get }
 }

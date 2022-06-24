@@ -11,23 +11,25 @@ protocol DeliveryRepository {
   func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void)
 }
 
-final class RemoteFallbackToLocalDeliveryRepository {
-  private let remote: DeliveryWebService
-  private let local: DeliveryLocalService
+protocol DeliveryService {
+  func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[DeliveryDTO], Error>) -> Void)
+}
+
+final class DeliveryRepositoryImpl {
+  private let remote: DeliveryService
+  private let local: DeliveryService
 
   init(
-    remote: DeliveryWebService,
-    local: DeliveryLocalService
+    remote: DeliveryService,
+    local: DeliveryService
   ) {
     self.remote = remote
     self.local = local
   }
 }
 
-extension RemoteFallbackToLocalDeliveryRepository: DeliveryRepository {
+extension DeliveryRepositoryImpl: DeliveryRepository {
   func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
-    remote.fetchDeliveries(offset: offset, limit: limit) { result in
-      
-    }
+    
   }
 }
