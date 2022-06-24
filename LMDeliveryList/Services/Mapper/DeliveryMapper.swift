@@ -20,7 +20,7 @@ final class DeliveryDomainModelMapper: DeliveryDomainModelMapping {
         imageURL: $0.goodsPicture,
         surchargeFee: $0.surcharge,
         deliveryFee: $0.deliveryFee,
-        isFavourite: false,
+        isFavourite: $0.isFavourite ?? false,
         sender: Delivery.Sender(
           name: $0.sender.name,
           email: $0.sender.email,
@@ -40,7 +40,7 @@ final class DeliveryDomainModelMapper: DeliveryDomainModelMapping {
         imageURL: delivery.goodsPicture,
         surchargeFee: delivery.surcharge,
         deliveryFee: delivery.deliveryFee,
-        isFavourite: false,
+        isFavourite: delivery.isFavourite ?? false,
         sender: Delivery.Sender(
           name: delivery.sender.name,
           email: delivery.sender.email,

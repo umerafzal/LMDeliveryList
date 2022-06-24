@@ -29,6 +29,8 @@
 		4A3EFFB728657CFB00BCA4BC /* DeliveryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFB628657CFB00BCA4BC /* DeliveryDTO.swift */; };
 		4A3EFFBA2865803400BCA4BC /* DeliveryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFB92865803400BCA4BC /* DeliveryMapper.swift */; };
 		4A3EFFBF28659D3300BCA4BC /* DeliveryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFBE28659D3300BCA4BC /* DeliveryResponse.swift */; };
+		4A3EFFC12865D67500BCA4BC /* DeliveryDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFC02865D67500BCA4BC /* DeliveryDatabaseModel.swift */; };
+		4A3EFFC32865DD1100BCA4BC /* DeliveryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFC22865DD1100BCA4BC /* DeliveryDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		4A3EFFB628657CFB00BCA4BC /* DeliveryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDTO.swift; sourceTree = "<group>"; };
 		4A3EFFB92865803400BCA4BC /* DeliveryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMapper.swift; sourceTree = "<group>"; };
 		4A3EFFBE28659D3300BCA4BC /* DeliveryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryResponse.swift; sourceTree = "<group>"; };
+		4A3EFFC02865D67500BCA4BC /* DeliveryDatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDatabaseModel.swift; sourceTree = "<group>"; };
+		4A3EFFC22865DD1100BCA4BC /* DeliveryDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +339,8 @@
 		4A3EFFBD28659D1900BCA4BC /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
+				4A3EFFC02865D67500BCA4BC /* DeliveryDatabaseModel.swift */,
+				4A3EFFC22865DD1100BCA4BC /* DeliveryDAO.swift */,
 			);
 			path = Persistance;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A3EFFBF28659D3300BCA4BC /* DeliveryResponse.swift in Sources */,
+				4A3EFFC12865D67500BCA4BC /* DeliveryDatabaseModel.swift in Sources */,
 				4A3EFF8D2864353400BCA4BC /* DeliveryListRouter.swift in Sources */,
 				4A3EFFAA286550C600BCA4BC /* ApiResponseWrapper.swift in Sources */,
 				4A3EFF93286437B000BCA4BC /* Delivery.swift in Sources */,
@@ -418,6 +425,7 @@
 				4A3EFFBA2865803400BCA4BC /* DeliveryMapper.swift in Sources */,
 				4A3EFFA628654FFE00BCA4BC /* RequestEncoder.swift in Sources */,
 				4A3EFFB02865568200BCA4BC /* DependencyContainer.swift in Sources */,
+				4A3EFFC32865DD1100BCA4BC /* DeliveryDAO.swift in Sources */,
 				4A3EFF9F2865391800BCA4BC /* DeliveryResource.swift in Sources */,
 				4A3EFF892864350600BCA4BC /* DeliveryListViewController.swift in Sources */,
 				4A3EFF6728640B9100BCA4BC /* AppDelegate.swift in Sources */,

@@ -12,7 +12,7 @@ protocol DeliveryDTO {
   var goodsPicture: String { get }
   var surcharge: String { get }
   var deliveryFee: String { get }
-  var isFavourite: Bool { get }
+  var isFavourite: Bool? { get }
   var sender: DeliverySenderDTO { get }
   var route: DeliveryRouteDTO { get }
 }

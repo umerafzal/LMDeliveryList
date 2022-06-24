@@ -51,7 +51,8 @@ final class DependencyContainer {
     register(type: DeliveryRepository.self) { container in
       DeliveryRepositoryImpl(
         remote: container.resolve(type: DeliveryWebService.self)!,
-        local: container.resolve(type: DeliveryLocalService.self)!
+        local: container.resolve(type: DeliveryLocalService.self)!,
+        mapper: container.resolve(type: DeliveryDomainModelMapping.self)!
       )
     }
   }

@@ -17,7 +17,7 @@ final class DeliveryWebService: DeliveryService {
   
   func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[DeliveryDTO], Error>) -> Void) {
     let resource = DeliveryResource.fetchDeliveries(offset: offset, limit: limit)
-    self.client.executeRequest(parameters: resource) { [unowned self] result in
+    self.client.executeRequest(parameters: resource) { result in
       switch result {
       case .success(let response):
         guard let data = response.jsonResponse else {
@@ -26,6 +26,8 @@ final class DeliveryWebService: DeliveryService {
         let deliveriesDTOs: [DeliveryResponse]
         do {
           deliveriesDTOs = try JSONDecoder().decode([DeliveryResponse].self, from: data)
+          DeliveryDAO.instance.save(deliveriesDTO: deliveriesDTOs)
+          completion(.success(deliveriesDTOs))
         }
         catch let error {
           completion(.failure(error))
@@ -36,3 +38,5 @@ final class DeliveryWebService: DeliveryService {
     }
   }
 }
+
+
