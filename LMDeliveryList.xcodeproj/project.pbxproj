@@ -24,6 +24,7 @@
 		4A3EFFA628654FFE00BCA4BC /* RequestEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFA528654FFE00BCA4BC /* RequestEncoder.swift */; };
 		4A3EFFAA286550C600BCA4BC /* ApiResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFA9286550C600BCA4BC /* ApiResponseWrapper.swift */; };
 		4A3EFFAC286550D600BCA4BC /* ApiErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFAB286550D600BCA4BC /* ApiErrorWrapper.swift */; };
+		4A3EFFB02865568200BCA4BC /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFAF2865568200BCA4BC /* DependencyContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		4A3EFFA528654FFE00BCA4BC /* RequestEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEncoder.swift; sourceTree = "<group>"; };
 		4A3EFFA9286550C600BCA4BC /* ApiResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseWrapper.swift; sourceTree = "<group>"; };
 		4A3EFFAB286550D600BCA4BC /* ApiErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorWrapper.swift; sourceTree = "<group>"; };
+		4A3EFFAF2865568200BCA4BC /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,12 +80,12 @@
 		4A3EFF6528640B9100BCA4BC /* LMDeliveryList */ = {
 			isa = PBXGroup;
 			children = (
+				4A3EFFAE2865567200BCA4BC /* App */,
 				4A3EFF7B2864114000BCA4BC /* Resources */,
 				4A3EFF7A2864113000BCA4BC /* Modules */,
 				4A3EFF94286437F800BCA4BC /* Repository */,
 				4A3EFF9828643F5800BCA4BC /* Services */,
 				4A3EFFA028653CAB00BCA4BC /* Network */,
-				4A3EFF6628640B9100BCA4BC /* AppDelegate.swift */,
 				4A3EFF7428640B9300BCA4BC /* Info.plist */,
 			);
 			path = LMDeliveryList;
@@ -268,6 +270,15 @@
 			path = APIClient;
 			sourceTree = "<group>";
 		};
+		4A3EFFAE2865567200BCA4BC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFF6628640B9100BCA4BC /* AppDelegate.swift */,
+				4A3EFFAF2865568200BCA4BC /* DependencyContainer.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,6 +355,7 @@
 				4A3EFF9D28643F9800BCA4BC /* DeliveryLocalService.swift in Sources */,
 				4A3EFFA228653CE700BCA4BC /* ResourceParameters.swift in Sources */,
 				4A3EFFA628654FFE00BCA4BC /* RequestEncoder.swift in Sources */,
+				4A3EFFB02865568200BCA4BC /* DependencyContainer.swift in Sources */,
 				4A3EFF9F2865391800BCA4BC /* DeliveryResource.swift in Sources */,
 				4A3EFF892864350600BCA4BC /* DeliveryListViewController.swift in Sources */,
 				4A3EFF6728640B9100BCA4BC /* AppDelegate.swift in Sources */,
