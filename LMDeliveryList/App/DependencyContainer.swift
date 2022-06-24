@@ -15,16 +15,34 @@ final class DependencyContainer {
   static let instance = DependencyContainer()
 
   private init() {
+    registerAPIClient()
     registerDeliveryDependencies()
   }
 
-  func registerDeliveryDependencies() {
-    register(type: DeliveryWebService.self) { _ in
-      DeliveryWebService()
+  private func registerAPIClient() {
+    register(type: APIClient.self) { _ in
+      APIClientImpl(
+        requestEncoder: RequestEncoderImpl(),
+        configuration: .ephemeral
+      )
+    }
+  }
+
+  private func registerDeliveryDependencies() {
+    registerDeliveryServices()
+    registerDeliveryRepository()
+  }
+
+  private func registerDeliveryServices() {
+    register(type: DeliveryWebService.self) { container in
+      DeliveryWebService(client: container.resolve(type: APIClient.self)!)
     }
     register(type: DeliveryLocalService.self) { _ in
       DeliveryLocalService()
     }
+  }
+
+  private func registerDeliveryRepository() {
     register(type: RemoteFallbackToLocalDeliveryRepository.self) { container in
       RemoteFallbackToLocalDeliveryRepository(
         remote: container.resolve(type: DeliveryWebService.self)!,
@@ -42,5 +60,4 @@ extension DependencyContainer {
   func resolve<Service>(type: Service.Type) -> Service? {
     return services["\(type)"]?(self) as? Service
   }
-
 }

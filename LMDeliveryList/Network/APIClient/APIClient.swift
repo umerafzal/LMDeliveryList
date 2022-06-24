@@ -23,7 +23,7 @@ final class APIClientImpl: APIClient {
 
   init(
     requestEncoder: RequestEncoder,
-    baseURLString: String = "https://6285f87796bccbf32d6c0e6a.mockapi.",
+    baseURLString: String = "https://6285f87796bccbf32d6c0e6a.mockapi.io",
     configuration: URLSessionConfiguration = .ephemeral
   ) {
     self.sessionManager = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)

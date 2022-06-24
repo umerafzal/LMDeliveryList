@@ -8,7 +8,21 @@
 import Foundation
 
 final class DeliveryWebService: DeliveryRepository {
-  func fetchDeliveries(startIndex: Int, offset: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
-    
+  private let client: APIClient
+
+  init(client: APIClient) {
+    self.client = client
+  }
+  
+  func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
+    let resource = DeliveryResource.fetchDeliveries(offset: offset, limit: limit)
+    self.client.executeRequest(parameters: resource) { result in
+      switch result {
+      case .success(let response):
+        print(response)
+      case .failure(let error):
+        print(error)
+      }
+    }
   }
 }

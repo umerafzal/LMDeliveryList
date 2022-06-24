@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DeliveryListPresenting {
-  func viewDidLoad()
+  func onViewDidLoad()
 }
 
 final class DeliveryListPresenter {
@@ -27,7 +27,18 @@ final class DeliveryListPresenter {
 }
 
 extension DeliveryListPresenter: DeliveryListPresenting {
-  func viewDidLoad() {
-    view?.updateView(deliveries: [])
+  func onViewDidLoad() {
+    fetchDeleiveries()
+  }
+
+  func fetchDeleiveries(offset: Int = 0) {
+    interactor.fetchDeliveries(offset: 0) { result in
+      switch result {
+      case .success(let deliveries):
+        ()
+      case .failure(let error):
+        ()
+      }
+    }
   }
 }

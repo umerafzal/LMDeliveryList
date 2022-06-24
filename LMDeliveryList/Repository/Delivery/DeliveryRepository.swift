@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DeliveryRepository {
-  func fetchDeliveries(startIndex: Int, offset: Int, completion: @escaping (Result<[Delivery], Error>) -> Void)
+  func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void)
 }
 
 final class RemoteFallbackToLocalDeliveryRepository {
@@ -25,7 +25,9 @@ final class RemoteFallbackToLocalDeliveryRepository {
 }
 
 extension RemoteFallbackToLocalDeliveryRepository: DeliveryRepository {
-  func fetchDeliveries(startIndex: Int, offset: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
-
+  func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
+    remote.fetchDeliveries(offset: offset, limit: limit) { result in
+      
+    }
   }
 }

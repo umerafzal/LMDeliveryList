@@ -27,7 +27,7 @@ final class DeliveryListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = .red
+    presenter.onViewDidLoad()
   }
 }
 
