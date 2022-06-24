@@ -20,6 +20,10 @@
 		4A3EFF9D28643F9800BCA4BC /* DeliveryLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF9C28643F9800BCA4BC /* DeliveryLocalService.swift */; };
 		4A3EFF9F2865391800BCA4BC /* DeliveryResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF9E2865391800BCA4BC /* DeliveryResource.swift */; };
 		4A3EFFA228653CE700BCA4BC /* ResourceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFA128653CE700BCA4BC /* ResourceParameters.swift */; };
+		4A3EFFA4286542C000BCA4BC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFA3286542C000BCA4BC /* APIClient.swift */; };
+		4A3EFFA628654FFE00BCA4BC /* RequestEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFA528654FFE00BCA4BC /* RequestEncoder.swift */; };
+		4A3EFFAA286550C600BCA4BC /* ApiResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFA9286550C600BCA4BC /* ApiResponseWrapper.swift */; };
+		4A3EFFAC286550D600BCA4BC /* ApiErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFAB286550D600BCA4BC /* ApiErrorWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		4A3EFF9C28643F9800BCA4BC /* DeliveryLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryLocalService.swift; sourceTree = "<group>"; };
 		4A3EFF9E2865391800BCA4BC /* DeliveryResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryResource.swift; sourceTree = "<group>"; };
 		4A3EFFA128653CE700BCA4BC /* ResourceParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceParameters.swift; sourceTree = "<group>"; };
+		4A3EFFA3286542C000BCA4BC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		4A3EFFA528654FFE00BCA4BC /* RequestEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEncoder.swift; sourceTree = "<group>"; };
+		4A3EFFA9286550C600BCA4BC /* ApiResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseWrapper.swift; sourceTree = "<group>"; };
+		4A3EFFAB286550D600BCA4BC /* ApiErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,9 +235,37 @@
 		4A3EFFA028653CAB00BCA4BC /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				4A3EFFA128653CE700BCA4BC /* ResourceParameters.swift */,
+				4A3EFFAD286550F200BCA4BC /* APIClient */,
+				4A3EFFA8286550A100BCA4BC /* Encoder */,
+				4A3EFFA72865509700BCA4BC /* Model */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		4A3EFFA72865509700BCA4BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFFA9286550C600BCA4BC /* ApiResponseWrapper.swift */,
+				4A3EFFAB286550D600BCA4BC /* ApiErrorWrapper.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A3EFFA8286550A100BCA4BC /* Encoder */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFFA528654FFE00BCA4BC /* RequestEncoder.swift */,
+			);
+			path = Encoder;
+			sourceTree = "<group>";
+		};
+		4A3EFFAD286550F200BCA4BC /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFFA128653CE700BCA4BC /* ResourceParameters.swift */,
+				4A3EFFA3286542C000BCA4BC /* APIClient.swift */,
+			);
+			path = APIClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,9 +339,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A3EFF8D2864353400BCA4BC /* DeliveryListRouter.swift in Sources */,
+				4A3EFFAA286550C600BCA4BC /* ApiResponseWrapper.swift in Sources */,
 				4A3EFF93286437B000BCA4BC /* Delivery.swift in Sources */,
 				4A3EFF9D28643F9800BCA4BC /* DeliveryLocalService.swift in Sources */,
 				4A3EFFA228653CE700BCA4BC /* ResourceParameters.swift in Sources */,
+				4A3EFFA628654FFE00BCA4BC /* RequestEncoder.swift in Sources */,
 				4A3EFF9F2865391800BCA4BC /* DeliveryResource.swift in Sources */,
 				4A3EFF892864350600BCA4BC /* DeliveryListViewController.swift in Sources */,
 				4A3EFF6728640B9100BCA4BC /* AppDelegate.swift in Sources */,
@@ -313,6 +351,8 @@
 				4A3EFF8B2864352500BCA4BC /* DeliveryListPresenter.swift in Sources */,
 				4A3EFF9B28643F8500BCA4BC /* DeliveryWebService.swift in Sources */,
 				4A3EFF912864355800BCA4BC /* DeliveryListInteractor.swift in Sources */,
+				4A3EFFA4286542C000BCA4BC /* APIClient.swift in Sources */,
+				4A3EFFAC286550D600BCA4BC /* ApiErrorWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
