@@ -34,8 +34,13 @@ final class DependencyContainer {
   }
 
   private func registerDeliveryServices() {
+    register(type: DeliveryDomainModelMapping.self) { _ in
+      DeliveryDomainModelMapper()
+    }
     register(type: DeliveryWebService.self) { container in
-      DeliveryWebService(client: container.resolve(type: APIClient.self)!)
+      DeliveryWebService(
+        client: container.resolve(type: APIClient.self)!,
+        deliveryDomainModelMapper: container.resolve(type: DeliveryDomainModelMapping.self)!)
     }
     register(type: DeliveryLocalService.self) { _ in
       DeliveryLocalService()

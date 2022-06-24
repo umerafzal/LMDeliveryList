@@ -12,7 +12,7 @@ final class DeliveryWebService: DeliveryRepository {
   private let mapper: DeliveryDomainModelMapping
 
   init(
-    client: APIClient
+    client: APIClient,
     deliveryDomainModelMapper: DeliveryDomainModelMapping
   ) {
     self.client = client
