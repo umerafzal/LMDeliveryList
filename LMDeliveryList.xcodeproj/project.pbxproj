@@ -19,6 +19,7 @@
 		4A3EFF9B28643F8500BCA4BC /* DeliveryWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF9A28643F8500BCA4BC /* DeliveryWebService.swift */; };
 		4A3EFF9D28643F9800BCA4BC /* DeliveryLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF9C28643F9800BCA4BC /* DeliveryLocalService.swift */; };
 		4A3EFF9F2865391800BCA4BC /* DeliveryResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFF9E2865391800BCA4BC /* DeliveryResource.swift */; };
+		4A3EFFA228653CE700BCA4BC /* ResourceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFA128653CE700BCA4BC /* ResourceParameters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4A3EFF9A28643F8500BCA4BC /* DeliveryWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryWebService.swift; sourceTree = "<group>"; };
 		4A3EFF9C28643F9800BCA4BC /* DeliveryLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryLocalService.swift; sourceTree = "<group>"; };
 		4A3EFF9E2865391800BCA4BC /* DeliveryResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryResource.swift; sourceTree = "<group>"; };
+		4A3EFFA128653CE700BCA4BC /* ResourceParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceParameters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				4A3EFF7A2864113000BCA4BC /* Modules */,
 				4A3EFF94286437F800BCA4BC /* Repository */,
 				4A3EFF9828643F5800BCA4BC /* Services */,
+				4A3EFFA028653CAB00BCA4BC /* Network */,
 				4A3EFF6628640B9100BCA4BC /* AppDelegate.swift */,
 				4A3EFF7428640B9300BCA4BC /* Info.plist */,
 			);
@@ -221,6 +224,14 @@
 			path = Delivery;
 			sourceTree = "<group>";
 		};
+		4A3EFFA028653CAB00BCA4BC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFFA128653CE700BCA4BC /* ResourceParameters.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -294,6 +305,7 @@
 				4A3EFF8D2864353400BCA4BC /* DeliveryListRouter.swift in Sources */,
 				4A3EFF93286437B000BCA4BC /* Delivery.swift in Sources */,
 				4A3EFF9D28643F9800BCA4BC /* DeliveryLocalService.swift in Sources */,
+				4A3EFFA228653CE700BCA4BC /* ResourceParameters.swift in Sources */,
 				4A3EFF9F2865391800BCA4BC /* DeliveryResource.swift in Sources */,
 				4A3EFF892864350600BCA4BC /* DeliveryListViewController.swift in Sources */,
 				4A3EFF6728640B9100BCA4BC /* AppDelegate.swift in Sources */,
