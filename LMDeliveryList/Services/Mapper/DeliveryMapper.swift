@@ -17,17 +17,17 @@ final class DeliveryDomainModelMapper: DeliveryDomainModelMapping {
     deliveries.map {
       Delivery(
         id: $0.id,
-        imageURL: $0.imageURL,
-        surchargeFee: $0.surchargeFee,
+        imageURL: $0.goodsPicture,
+        surchargeFee: $0.surcharge,
         deliveryFee: $0.deliveryFee,
         sender: Delivery.Sender(
           name: $0.sender.name,
           email: $0.sender.email,
-          phoneNumber: $0.sender.phoneNumber
+          phoneNumber: $0.sender.phone
         ),
         route: Delivery.Route(
-          to: $0.route.to,
-          from: $0.route.from
+          to: $0.route.start,
+          from: $0.route.end
         )
       )
     }
@@ -36,17 +36,17 @@ final class DeliveryDomainModelMapper: DeliveryDomainModelMapping {
   func map(delivery: DeliveryResponseDTO) -> Delivery {
       Delivery(
         id: delivery.id,
-        imageURL: delivery.imageURL,
-        surchargeFee: delivery.surchargeFee,
+        imageURL: delivery.goodsPicture,
+        surchargeFee: delivery.surcharge,
         deliveryFee: delivery.deliveryFee,
         sender: Delivery.Sender(
           name: delivery.sender.name,
           email: delivery.sender.email,
-          phoneNumber: delivery.sender.phoneNumber
+          phoneNumber: delivery.sender.phone
         ),
         route: Delivery.Route(
-          to: delivery.route.to,
-          from: delivery.route.from
+          to: delivery.route.start,
+          from: delivery.route.end
         )
       )
   }
