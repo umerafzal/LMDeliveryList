@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol DeliveryDetailsView: AnyObject {
+  func updateView(model: DeliveryDetailsViewModel)
+}
+
 final class DeliveryDetailsViewController: UIViewController {
   private lazy var routeStackView: UIStackView = {
     let stackView = UIStackView(arrangedSubviews: [fromLabel, toLabel])
@@ -81,4 +85,10 @@ final class DeliveryDetailsViewController: UIViewController {
     mainStackView.pinToSuperView()
   }
 
+}
+
+extension DeliveryDetailsViewController: DeliveryDetailsView {
+  func updateView(model: DeliveryDetailsViewModel) {
+
+  }
 }
