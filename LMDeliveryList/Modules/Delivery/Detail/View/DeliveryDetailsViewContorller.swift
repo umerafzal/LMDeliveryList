@@ -16,6 +16,7 @@ final class DeliveryDetailsViewController: UIViewController {
   private lazy var routeStackView: UIStackView = {
     let stackView = UIStackView(arrangedSubviews: [fromLabel, toLabel])
     stackView.axis = .vertical
+    stackView.distribution = .fillEqually
     stackView.spacing = 10
     return stackView
   }()
@@ -52,6 +53,7 @@ final class DeliveryDetailsViewController: UIViewController {
 
   private lazy var favoriteButton: UIButton = {
     let button = UIButton()
+    button.setTitleColor(.blue, for: .normal)
     button.addTarget(self, action: #selector(favoriteAction), for: .touchUpInside)
     return button
   }()
@@ -69,6 +71,7 @@ final class DeliveryDetailsViewController: UIViewController {
     )
     stackView.axis = .vertical
     stackView.spacing = 10
+    stackView.translatesAutoresizingMaskIntoConstraints = false
     return stackView
   }()
 
@@ -87,14 +90,23 @@ final class DeliveryDetailsViewController: UIViewController {
     super.viewDidLoad()
     configureUI()
     presenter.onViewDidLoad()
+    view.backgroundColor = .white
   }
 
   private func configureUI() {
     view.addSubview(mainStackView)
+    confirgureLayout()
   }
 
   private func confirgureLayout() {
-    mainStackView.pinToSuperView()
+    mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+    mainStackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    mainStackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    routeStackView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    deliveryImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    mainStackView.setCustomSpacing(50, after: routeStackView)
+    mainStackView.setCustomSpacing(50, after: deliveryImageView)
+    mainStackView.setCustomSpacing(80, after: deliveryFeeValueLabel)
   }
 
 }
@@ -107,12 +119,13 @@ extension DeliveryDetailsViewController: DeliveryDetailsView {
     deliveryImageView.downloaded(from: viewModel.goodImageURL)
     deliveryFeeKeyLabel.text = viewModel.deliveryFeeKey
     deliveryFeeValueLabel.text = viewModel.deliveryFeeValue
+    favoriteButton.setTitle(viewModel.favoriteButtonTitle, for: .normal)
   }
 }
 
 extension DeliveryDetailsViewController {
   @objc
   func favoriteAction() {
-
+    
   }
 }
