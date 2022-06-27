@@ -13,7 +13,8 @@ final class DeliveryCell: UITableViewCell {
   private lazy var mainStackView: UIStackView = {
     let stackView = UIStackView(arrangedSubviews: [
       deliveryImageView,
-      routeStackView
+      routeStackView,
+      rightContainerView
     ])
     stackView.axis = .horizontal
     stackView.spacing = 10
@@ -46,6 +47,29 @@ final class DeliveryCell: UITableViewCell {
     return label
   }()
 
+  private lazy var favoriteImageView: UIImageView = {
+    let imageView = UIImageView()
+    return imageView
+  }()
+
+  private lazy var feeLabel: UILabel = {
+    let label = UILabel()
+    return label
+  }()
+
+  private lazy var rightContainerView: UIStackView = {
+    let stackView = UIStackView(arrangedSubviews: [
+      favoriteImageView,
+      feeLabel
+    ])
+    stackView.axis = .vertical
+    stackView.spacing = 10
+    stackView.distribution = .fillEqually
+    stackView.alignment = .center
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
+
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     setupLayoutConstraints()
@@ -65,6 +89,7 @@ final class DeliveryCell: UITableViewCell {
     backgroundColor = .clear
     mainStackView.pinToSuperView()
     deliveryImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+    rightContainerView.widthAnchor.constraint(equalToConstant: 100).isActive = true
   }
 
   override func prepareForReuse() {
@@ -75,5 +100,6 @@ final class DeliveryCell: UITableViewCell {
     self.fromLabel.text = "from: " + model.from
     self.toLabel.text = "to:" + model.to
     self.deliveryImageView.downloaded(from: model.imageURL)
+    self.feeLabel.text = "$30"
   }
 }
