@@ -101,5 +101,6 @@ final class DeliveryCell: UITableViewCell {
     self.toLabel.text = "to:" + model.to
     self.deliveryImageView.downloaded(from: model.imageURL)
     self.feeLabel.text = "$30"
+    self.favoriteImageView.image = model.isFavorite ? UIImage(named: "ic_favorite") : UIImage(named: "ic_unfavorite")
   }
 }
