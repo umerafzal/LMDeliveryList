@@ -28,3 +28,9 @@ extension Delivery {
     let from: String
   }
 }
+
+extension Delivery {
+  var fee: String {
+    "$10"
+  }
+}
