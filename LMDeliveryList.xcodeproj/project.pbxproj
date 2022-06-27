@@ -40,6 +40,7 @@
 		4A3EFFD32869B3B700BCA4BC /* DeliveryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFD22869B3B700BCA4BC /* DeliveryDetailsViewModel.swift */; };
 		4A3EFFD52869B40000BCA4BC /* DeliveryDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFD42869B40000BCA4BC /* DeliveryDetailsPresenter.swift */; };
 		4A3EFFD82869B5D400BCA4BC /* DeliveryDetailsViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFD72869B5D400BCA4BC /* DeliveryDetailsViewModelMapper.swift */; };
+		4A3EFFDB2869B8B600BCA4BC /* DeliveryDetailsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3EFFDA2869B8B600BCA4BC /* DeliveryDetailsBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		4A3EFFD22869B3B700BCA4BC /* DeliveryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailsViewModel.swift; sourceTree = "<group>"; };
 		4A3EFFD42869B40000BCA4BC /* DeliveryDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailsPresenter.swift; sourceTree = "<group>"; };
 		4A3EFFD72869B5D400BCA4BC /* DeliveryDetailsViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailsViewModelMapper.swift; sourceTree = "<group>"; };
+		4A3EFFDA2869B8B600BCA4BC /* DeliveryDetailsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailsBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 		4A3EFF7F2864344A00BCA4BC /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				4A3EFFD92869B8A400BCA4BC /* Builder */,
 				4A3EFFD62869B5C300BCA4BC /* Mapper */,
 				4A3EFF87286434BE00BCA4BC /* Interactor */,
 				4A3EFF86286434B600BCA4BC /* Router */,
@@ -396,6 +399,14 @@
 			path = Mapper;
 			sourceTree = "<group>";
 		};
+		4A3EFFD92869B8A400BCA4BC /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				4A3EFFDA2869B8B600BCA4BC /* DeliveryDetailsBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -474,6 +485,7 @@
 				4A3EFFD52869B40000BCA4BC /* DeliveryDetailsPresenter.swift in Sources */,
 				4A3EFFAA286550C600BCA4BC /* ApiResponseWrapper.swift in Sources */,
 				4A3EFF93286437B000BCA4BC /* Delivery.swift in Sources */,
+				4A3EFFDB2869B8B600BCA4BC /* DeliveryDetailsBuilder.swift in Sources */,
 				4A3EFF9D28643F9800BCA4BC /* DeliveryLocalService.swift in Sources */,
 				4A3EFFD12869AF7800BCA4BC /* DeliveryDetailsViewContorller.swift in Sources */,
 				4A3EFFCA2865F83500BCA4BC /* DeliveryViewModel.swift in Sources */,
