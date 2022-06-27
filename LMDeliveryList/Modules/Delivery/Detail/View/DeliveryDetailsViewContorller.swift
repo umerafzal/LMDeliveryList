@@ -126,6 +126,6 @@ extension DeliveryDetailsViewController: DeliveryDetailsView {
 extension DeliveryDetailsViewController {
   @objc
   func favoriteAction() {
-    
+    presenter.onFavoriteButtonPressed()
   }
 }

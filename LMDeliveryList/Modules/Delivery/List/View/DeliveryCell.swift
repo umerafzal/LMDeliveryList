@@ -33,6 +33,7 @@ final class DeliveryCell: UITableViewCell {
       toLabel
     ])
     stackView.axis = .vertical
+    stackView.distribution = .fillEqually
     stackView.spacing = 8
     return stackView
   }()
@@ -88,19 +89,20 @@ final class DeliveryCell: UITableViewCell {
   func setupLayout() {
     backgroundColor = .clear
     mainStackView.pinToSuperView()
-    deliveryImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+    deliveryImageView.widthAnchor.constraint(equalToConstant: 110).isActive = true
     rightContainerView.widthAnchor.constraint(equalToConstant: 100).isActive = true
   }
 
   override func prepareForReuse() {
     super.prepareForReuse()
+    deliveryImageView.image = nil
   }
 
   func update(model: DeliveryViewModel) {
-    self.fromLabel.text = model.from
-    self.toLabel.text = model.to
+    self.fromLabel.text = "From: " + model.from
+    self.toLabel.text = "To: " + model.to
     self.deliveryImageView.downloaded(from: model.imageURL)
     self.feeLabel.text = model.deliveryFee
-    self.favoriteImageView.image = model.isFavorite ? UIImage(named: "ic_favorite") : UIImage(named: "ic_unfavorite")
+    self.favoriteImageView.image = model.isFavorite ? UIImage(named: "ic_favorite") : nil
   }
 }

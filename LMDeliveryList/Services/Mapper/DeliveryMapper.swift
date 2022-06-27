@@ -27,8 +27,8 @@ final class DeliveryDomainModelMapper: DeliveryDomainModelMapping {
           phoneNumber: $0.sender.phone
         ),
         route: Delivery.Route(
-          to: $0.route.start,
-          from: $0.route.end
+          to: $0.route.end,
+          from: $0.route.start
         )
       )
     }

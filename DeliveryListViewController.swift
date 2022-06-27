@@ -39,7 +39,11 @@ final class DeliveryListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
-    presenter.onViewDidLoad()
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    presenter.onViewDidAppear()
   }
 
   func configureUI() {
@@ -55,7 +59,7 @@ final class DeliveryListViewController: UIViewController {
 extension DeliveryListViewController: DeliveryListView {
   func updateView(deliveries: [DeliveryViewModel]) {
     self.deliveries = deliveries
-    tableView.reloadData()
+    self.tableView.reloadData()
   }
 
   func showError(error: Error) {
@@ -78,5 +82,3 @@ extension DeliveryListViewController: UITableViewDataSource, UITableViewDelegate
     presenter.onItemSelected(index: indexPath.row)
   }
 }
-
-

@@ -19,7 +19,7 @@ final class DeliveryDetailsViewModelMapper: DeliveryDetailsViewModelMapping {
                              goodImageURL: delivery.imageURL,
                              deliveryFeeKey: "Goods Delivery Fee",
                              deliveryFeeValue: delivery.totalFee,
-                             favoriteButtonTitle: "Mark favorite"
+                             favoriteButtonTitle: delivery.isFavourite ? "Unmark favorite" : "Mark favorite"
     )
   }
 }

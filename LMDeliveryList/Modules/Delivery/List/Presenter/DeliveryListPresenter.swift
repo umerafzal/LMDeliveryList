@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DeliveryListPresenting {
-  func onViewDidLoad()
+  func onViewDidAppear()
   func onItemSelected(index: Int)
 }
 
@@ -33,7 +33,7 @@ final class DeliveryListPresenter {
 }
 
 extension DeliveryListPresenter: DeliveryListPresenting {
-  func onViewDidLoad() {
+  func onViewDidAppear() {
     fetchDeleiveries()
   }
 

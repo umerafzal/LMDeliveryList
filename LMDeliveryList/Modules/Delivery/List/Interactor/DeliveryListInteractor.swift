@@ -21,6 +21,6 @@ final class DeliveryListInteractor: DeliveryListInteracting {
   }
 
   func fetchDeliveries(offset: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
-    repository.fetchDeliveries(offset: offset, limit: limit, completion: completion)
+    repository.fetchAll(offset: offset, limit: limit, completion: completion)
   }
 }

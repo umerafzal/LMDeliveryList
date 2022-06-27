@@ -23,8 +23,13 @@ final class DeliveryListRouter {
 }
 
 extension DeliveryListRouter: DeliveryListRouting {
-  func navigateToDeliveryDetailsScreen(delivery: Delivery) {
-    let vc = deliveryDetailsBuilder.buildDeliveryDetailsScreen(delivery: delivery)
+  func navigateToDeliveryDetailsScreen(
+    delivery: Delivery
+  ) {
+    let vc = deliveryDetailsBuilder
+      .buildDeliveryDetailsScreen(
+        delivery: delivery
+      )
     viewController?.navigationController?.pushViewController(vc, animated: true)
   }
 }

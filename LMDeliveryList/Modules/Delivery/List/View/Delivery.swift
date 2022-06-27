@@ -31,6 +31,7 @@ extension Delivery {
 
 extension Delivery {
   var totalFee: String {
-    "$10"
+    let totalFee = deliveryFee.removeFormatAmount() + surchargeFee.removeFormatAmount()
+    return "$\(totalFee)"
   }
 }

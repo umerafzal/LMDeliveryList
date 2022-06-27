@@ -15,6 +15,41 @@ struct DeliveryDatabaseModel: Codable {
   var delivery_isFavorite: Bool
   var delivery_sender: DeliveryDatabaseModel.Sender
   var delivery_route: DeliveryDatabaseModel.Route
+
+  init(
+    delivery_id: String,
+    delivery_goodsPicture: String,
+    delivery_surcharge: String,
+    delivery_deliveryFee: String,
+    delivery_isFavorite: Bool,
+    delivery_sender: DeliveryDatabaseModel.Sender,
+    delivery_route: DeliveryDatabaseModel.Route
+  ) {
+    self.delivery_id = delivery_id
+    self.delivery_goodsPicture = delivery_goodsPicture
+    self.delivery_surcharge = delivery_surcharge
+    self.delivery_deliveryFee = delivery_deliveryFee
+    self.delivery_isFavorite = delivery_isFavorite
+    self.delivery_sender = delivery_sender
+    self.delivery_route = delivery_route
+  }
+
+  init(delivery: Delivery) {
+    self.delivery_id = delivery.id
+    self.delivery_goodsPicture = delivery.imageURL
+    self.delivery_surcharge = delivery.surchargeFee
+    self.delivery_deliveryFee = delivery.deliveryFee
+    self.delivery_isFavorite = delivery.isFavourite
+    self.delivery_sender = DeliveryDatabaseModel.Sender(
+      delivery_name: delivery.sender.name,
+      delivery_email: delivery.sender.email,
+      delivery_phone: delivery.sender.phoneNumber
+    )
+    self.delivery_route = DeliveryDatabaseModel.Route(
+      delivery_start: delivery.route.from,
+      delivery_end: delivery.route.to
+    )
+  }
 }
 
 extension DeliveryDatabaseModel {

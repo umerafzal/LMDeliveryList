@@ -37,6 +37,10 @@ final class DeliveryWebService: DeliveryService {
       }
     }
   }
+
+  func update(delivery: Delivery) {
+
+  }
 }
 
 

@@ -8,6 +8,7 @@
 import Foundation
 
 final class DeliveryLocalService: DeliveryService {
+
   // UserDefaults for storage for assignment purpose
 
   func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[DeliveryDTO], Error>) -> Void) {
@@ -16,5 +17,9 @@ final class DeliveryLocalService: DeliveryService {
     } else {
       completion(.failure(NSError(domain: "DATABASE.ERROR", code: -800, userInfo: nil)))
     }
+  }
+
+  func update(delivery: Delivery) {
+    DeliveryDAO.instance.save(deliveriesDTO: [DeliveryDatabaseModel(delivery: delivery)])
   }
 }

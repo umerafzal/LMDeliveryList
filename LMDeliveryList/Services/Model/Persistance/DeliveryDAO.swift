@@ -16,52 +16,54 @@ final class DeliveryDAO {
   }
 
   func save(deliveriesDTO: [DeliveryDTO]) {
-    if let localDeliveries = retrieveDeliveries() {
-      var deliveriesToSave: [DeliveryDTO] = []
+    if var localDeliveriesMap = retrieveDeliveriesInternal() {
       for deliveryDTO in deliveriesDTO {
-        var existingRecordUpdated = false
-        var temporaryDelivery: DeliveryDatabaseModel!
-        for localDelivery in localDeliveries {
-          if deliveryDTO.id == localDelivery.id {
-            temporaryDelivery = localDelivery
-            temporaryDelivery.delivery_id = deliveryDTO.id
-            temporaryDelivery.delivery_goodsPicture = deliveryDTO.goodsPicture
-            temporaryDelivery.delivery_surcharge = deliveryDTO.surcharge
-            temporaryDelivery.delivery_deliveryFee = deliveryDTO.deliveryFee
-            temporaryDelivery.delivery_isFavorite = deliveryDTO.isFavourite ?? temporaryDelivery.delivery_isFavorite
-            temporaryDelivery.delivery_sender.delivery_name = deliveryDTO.sender.name
-            temporaryDelivery.delivery_sender.delivery_email = deliveryDTO.sender.email
-            temporaryDelivery.delivery_sender.delivery_phone = deliveryDTO.sender.phone
-            temporaryDelivery.delivery_route.delivery_start = deliveryDTO.route.start
-            temporaryDelivery.delivery_route.delivery_end = deliveryDTO.route.end
-            existingRecordUpdated = true
-          }
-        }
-        if existingRecordUpdated {
-          deliveriesToSave.append(temporaryDelivery)
+        if let localDelivery = localDeliveriesMap[deliveryDTO.id] {
+          var temporaryDelivery: DeliveryDatabaseModel = localDelivery
+          temporaryDelivery = localDelivery
+          temporaryDelivery.delivery_id = deliveryDTO.id
+          temporaryDelivery.delivery_goodsPicture = deliveryDTO.goodsPicture
+          temporaryDelivery.delivery_surcharge = deliveryDTO.surcharge
+          temporaryDelivery.delivery_deliveryFee = deliveryDTO.deliveryFee
+          temporaryDelivery.delivery_isFavorite = deliveryDTO.isFavourite ?? temporaryDelivery.delivery_isFavorite
+          temporaryDelivery.delivery_sender.delivery_name = deliveryDTO.sender.name
+          temporaryDelivery.delivery_sender.delivery_email = deliveryDTO.sender.email
+          temporaryDelivery.delivery_sender.delivery_phone = deliveryDTO.sender.phone
+          temporaryDelivery.delivery_route.delivery_start = deliveryDTO.route.start
+          temporaryDelivery.delivery_route.delivery_end = deliveryDTO.route.end
+          localDeliveriesMap[temporaryDelivery.id] = temporaryDelivery
         } else {
-          deliveriesToSave.append(deliveryDTO)
+          localDeliveriesMap[deliveryDTO.id] = deliveryDTO.toDeliveryDatabaseModel()
         }
       }
-      let models = deliveriesToSave.map { $0.toDeliveryDatabaseModel() }
-      saveInternal(models: models)
+      saveInternal(models: localDeliveriesMap)
     }
     else {
-      let models = deliveriesDTO.map { $0.toDeliveryDatabaseModel() }
-      saveInternal(models: models)
+      var dic: [String: DeliveryDatabaseModel] = [:]
+      _ = deliveriesDTO.map { dic[$0.id] = $0.toDeliveryDatabaseModel() }
+      saveInternal(models: dic)
     }
   }
 
   func retrieveDeliveries() -> [DeliveryDatabaseModel]? {
     if let data = UserDefaults.standard.value(forKey: StorageKeys.deliveries.rawValue) as? Data,
-       let deliveries = try? JSONDecoder().decode([DeliveryDatabaseModel].self, from: data)
+       let deliveriesMap = try? JSONDecoder().decode([String: DeliveryDatabaseModel].self, from: data)
     {
-      return deliveries
+      return Array(deliveriesMap.values).sorted(by: { one, two in one.id < two.id })
     }
     return nil
   }
 
-  private func saveInternal(models: [DeliveryDatabaseModel]) {
+  private func retrieveDeliveriesInternal() -> [String: DeliveryDatabaseModel]? {
+    if let data = UserDefaults.standard.value(forKey: StorageKeys.deliveries.rawValue) as? Data,
+       let deliveriesMap = try? JSONDecoder().decode([String: DeliveryDatabaseModel].self, from: data)
+    {
+      return deliveriesMap
+    }
+    return nil
+  }
+
+  private func saveInternal(models: [String: DeliveryDatabaseModel]) {
     let encoded = try? JSONEncoder().encode(models)
     UserDefaults.standard.set(encoded, forKey: StorageKeys.deliveries.rawValue)
   }

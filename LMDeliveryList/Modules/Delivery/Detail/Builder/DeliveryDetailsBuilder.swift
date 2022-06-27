@@ -8,14 +8,18 @@
 import Foundation
 
 protocol DeliveryDetailsBuilding {
-  func buildDeliveryDetailsScreen(delivery: Delivery) -> DeliveryDetailsViewController
+  func buildDeliveryDetailsScreen(
+    delivery: Delivery
+  ) -> DeliveryDetailsViewController
 }
 
 extension DependencyContainer: DeliveryDetailsBuilding {
-  func buildDeliveryDetailsScreen(delivery: Delivery) -> DeliveryDetailsViewController {
+  func buildDeliveryDetailsScreen(
+    delivery: Delivery) -> DeliveryDetailsViewController {
     let presenter = DeliveryDetailsPresenter(
       selectedDeliveryDetails: delivery,
-      mapper: DeliveryDetailsViewModelMapper()
+      mapper: DeliveryDetailsViewModelMapper(),
+      repository: resolve(type: DeliveryRepository.self)!
     )
     let vc = DeliveryDetailsViewController(presenter: presenter)
     presenter.view = vc

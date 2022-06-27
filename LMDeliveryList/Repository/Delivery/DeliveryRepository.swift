@@ -8,11 +8,13 @@
 import Foundation
 
 protocol DeliveryRepository {
-  func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void)
+  func fetchAll(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void)
+  func update(delivery: Delivery)
 }
 
 protocol DeliveryService {
   func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[DeliveryDTO], Error>) -> Void)
+  func update(delivery: Delivery)
 }
 
 final class DeliveryRepositoryImpl {
@@ -32,10 +34,16 @@ final class DeliveryRepositoryImpl {
 }
 
 extension DeliveryRepositoryImpl: DeliveryRepository {
-  func fetchDeliveries(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
+
+  func update(delivery: Delivery) {
+    local.update(delivery: delivery)
+  }
+
+  func fetchAll(offset: Int, limit: Int, completion: @escaping (Result<[Delivery], Error>) -> Void) {
     local.fetchDeliveries(offset: offset, limit: limit) { [weak self] result in
       switch result {
       case .success(let deliveriesDTO):
+        print("Local Data")
         let deliveries = self?.mapper.map(deliveries: deliveriesDTO)
         completion(.success(deliveries ?? []))
       case .failure(let error):
@@ -43,6 +51,7 @@ extension DeliveryRepositoryImpl: DeliveryRepository {
         self?.remote.fetchDeliveries(offset: offset, limit: limit) { remoteResult in
           switch remoteResult {
           case .success(let deliveriesDTO):
+            print("Remote Data")
             let deliveries = self?.mapper.map(deliveries: deliveriesDTO)
             completion(.success(deliveries ?? []))
           case .failure(let error):
