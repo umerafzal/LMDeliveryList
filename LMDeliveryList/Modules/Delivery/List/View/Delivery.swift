@@ -30,7 +30,7 @@ extension Delivery {
 }
 
 extension Delivery {
-  var fee: String {
+  var totalFee: String {
     "$10"
   }
 }

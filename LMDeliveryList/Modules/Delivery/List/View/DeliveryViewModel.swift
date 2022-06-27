@@ -9,6 +9,7 @@ import Foundation
 
 struct DeliveryViewModel {
   let id: String
+  let deliveryFee: String
   var from: String
   var to: String
   var imageURL: String

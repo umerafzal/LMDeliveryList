@@ -18,7 +18,7 @@ final class DeliveryDetailsViewModelMapper: DeliveryDetailsViewModelMapping {
                              goodsToDeliverKey: "Goods To Deliver",
                              goodImageURL: delivery.imageURL,
                              deliveryFeeKey: "Goods Delivery Fee",
-                             deliveryFeeValue: delivery.fee,
+                             deliveryFeeValue: delivery.totalFee,
                              favoriteButtonTitle: "Mark favorite"
     )
   }

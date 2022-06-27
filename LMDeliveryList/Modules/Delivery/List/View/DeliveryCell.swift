@@ -97,10 +97,10 @@ final class DeliveryCell: UITableViewCell {
   }
 
   func update(model: DeliveryViewModel) {
-    self.fromLabel.text = "from: " + model.from
-    self.toLabel.text = "to:" + model.to
+    self.fromLabel.text = model.from
+    self.toLabel.text = model.to
     self.deliveryImageView.downloaded(from: model.imageURL)
-    self.feeLabel.text = "$30"
+    self.feeLabel.text = model.deliveryFee
     self.favoriteImageView.image = model.isFavorite ? UIImage(named: "ic_favorite") : UIImage(named: "ic_unfavorite")
   }
 }

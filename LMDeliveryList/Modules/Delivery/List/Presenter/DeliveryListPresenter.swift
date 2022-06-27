@@ -9,12 +9,15 @@ import Foundation
 
 protocol DeliveryListPresenting {
   func onViewDidLoad()
+  func onItemSelected(index: Int)
 }
 
 final class DeliveryListPresenter {
   private let router: DeliveryListRouting
   private let interactor: DeliveryListInteracting
   private let mapper: DeliveryViewModelMapping
+
+  private var deliveries: [Delivery] = []
 
   weak var view: DeliveryListView?
 
@@ -38,11 +41,16 @@ extension DeliveryListPresenter: DeliveryListPresenting {
     interactor.fetchDeliveries(offset: 0) { [weak self] result in
       switch result {
       case .success(let deliveries):
+        self?.deliveries = deliveries
         let deliveriesViewModels = self?.mapper.map(deliveries: deliveries)
         self?.view?.updateView(deliveries: deliveriesViewModels ?? [])
       case .failure(let error):
         self?.view?.showError(error: error)
       }
     }
+  }
+
+  func onItemSelected(index: Int) {
+    router.navigateToDeliveryDetailsScreen(delivery: deliveries[index])
   }
 }

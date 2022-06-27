@@ -20,6 +20,7 @@ final class DeliveryListViewController: UIViewController {
   private lazy var tableView: UITableView = {
     let tableView = UITableView()
     tableView.translatesAutoresizingMaskIntoConstraints = false
+    tableView.register(DeliveryCell.self, forCellReuseIdentifier: "\(DeliveryCell.self)")
     tableView.dataSource = self
     tableView.delegate = self
     return tableView
@@ -58,7 +59,7 @@ extension DeliveryListViewController: DeliveryListView {
   }
 
   func showError(error: Error) {
-    // show error
+    print(error.localizedDescription)
   }
 }
 
@@ -68,9 +69,13 @@ extension DeliveryListViewController: UITableViewDataSource, UITableViewDelegate
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = DeliveryCell(style: .default, reuseIdentifier: "\(DeliveryCell.self)")
+    let cell = tableView.dequeueReusableCell(withIdentifier: "\(DeliveryCell.self)", for: indexPath) as! DeliveryCell
     cell.update(model: self.deliveries[indexPath.row])
     return cell
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    presenter.onItemSelected(index: indexPath.row)
   }
 }
 

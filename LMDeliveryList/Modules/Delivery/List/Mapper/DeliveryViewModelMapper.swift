@@ -17,6 +17,7 @@ final class DeliveryViewModelMapper: DeliveryViewModelMapping {
     deliveries.map {
       DeliveryViewModel(
         id: $0.id,
+        deliveryFee: $0.totalFee,
         from: $0.route.from,
         to: $0.route.to,
         imageURL: $0.imageURL,
@@ -28,6 +29,7 @@ final class DeliveryViewModelMapper: DeliveryViewModelMapping {
   func map(delivery: Delivery) -> DeliveryViewModel {
     DeliveryViewModel(
       id: delivery.id,
+      deliveryFee: delivery.totalFee,
       from: delivery.route.from,
       to: delivery.route.to,
       imageURL: delivery.imageURL,
