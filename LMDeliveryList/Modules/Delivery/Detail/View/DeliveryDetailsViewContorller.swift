@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol DeliveryDetailsView: AnyObject {
-  func updateView(model: DeliveryDetailsViewModel)
+  func updateView(viewModel: DeliveryDetailsViewModel)
 }
 
 final class DeliveryDetailsViewController: UIViewController {
@@ -50,9 +50,10 @@ final class DeliveryDetailsViewController: UIViewController {
     return label
   }()
 
-  private lazy var favoriteButton: UILabel = {
-    let label = UILabel()
-    return label
+  private lazy var favoriteButton: UIButton = {
+    let button = UIButton()
+    button.addTarget(self, action: #selector(favoriteAction), for: .touchUpInside)
+    return button
   }()
 
   private lazy var mainStackView: UIStackView = {
@@ -71,10 +72,21 @@ final class DeliveryDetailsViewController: UIViewController {
     return stackView
   }()
 
+  private let presenter: DeliveryDetailsPresenting
+
+  init(presenter: DeliveryDetailsPresenting) {
+    self.presenter = presenter
+    super.init(nibName: nil, bundle: nil)
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
+    presenter.onViewDidLoad()
   }
 
   private func configureUI() {
@@ -88,7 +100,19 @@ final class DeliveryDetailsViewController: UIViewController {
 }
 
 extension DeliveryDetailsViewController: DeliveryDetailsView {
-  func updateView(model: DeliveryDetailsViewModel) {
+  func updateView(viewModel: DeliveryDetailsViewModel) {
+    fromLabel.text = viewModel.from
+    toLabel.text = viewModel.to
+    goodsToDeliverKeyLabel.text = viewModel.goodsToDeliverKey
+    deliveryImageView.downloaded(from: viewModel.goodImageURL)
+    deliveryFeeKeyLabel.text = viewModel.deliveryFeeKey
+    deliveryFeeValueLabel.text = viewModel.deliveryFeeValue
+  }
+}
+
+extension DeliveryDetailsViewController {
+  @objc
+  func favoriteAction() {
 
   }
 }
