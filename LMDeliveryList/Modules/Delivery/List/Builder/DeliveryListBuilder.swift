@@ -15,7 +15,7 @@ extension DependencyContainer: DeliveryListBuilding {
   func buildDeliveryListScreen() -> DeliveryListViewController {
     let router = DeliveryListRouter()
     let interactor = DeliveryListInteractor(repository: resolve(type: DeliveryRepository.self)!)
-    let presenter = DeliveryListPresenter(router: router, interactor: interactor)
+    let presenter = DeliveryListPresenter(router: router, interactor: interactor, mapper: DeliveryViewModelMapper())
     let vc = DeliveryListViewController(presenter: presenter)
     presenter.view = vc
     return vc

@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 protocol DeliveryListView: AnyObject {
-  func updateView(deliveries: [Delivery])
+  func updateView(deliveries: [DeliveryViewModel])
   func showError(error: Error)
 }
 
 final class DeliveryListViewController: UIViewController {
   private let presenter: DeliveryListPresenting
-  private var deliveries: [Delivery]
+  private var deliveries: [DeliveryViewModel]
 
   private lazy var tableView: UITableView = {
     let tableView = UITableView()
@@ -52,7 +52,7 @@ final class DeliveryListViewController: UIViewController {
 }
 
 extension DeliveryListViewController: DeliveryListView {
-  func updateView(deliveries: [Delivery]) {
+  func updateView(deliveries: [DeliveryViewModel]) {
     self.deliveries = deliveries
     tableView.reloadData()
   }
@@ -69,13 +69,7 @@ extension DeliveryListViewController: UITableViewDataSource, UITableViewDelegate
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = DeliveryCell(style: .default, reuseIdentifier: "\(DeliveryCell.self)")
-    cell.update(model: DeliveryViewModel(
-      id: self.deliveries[indexPath.row].id,
-      from: self.deliveries[indexPath.row].route.from,
-      to: self.deliveries[indexPath.row].route.to,
-      imageURL: self.deliveries[indexPath.row].imageURL,
-      isFavorite: self.deliveries[indexPath.row].isFavourite)
-    )
+    cell.update(model: self.deliveries[indexPath.row])
     return cell
   }
 }

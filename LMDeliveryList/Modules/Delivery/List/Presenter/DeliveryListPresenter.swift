@@ -14,15 +14,18 @@ protocol DeliveryListPresenting {
 final class DeliveryListPresenter {
   private let router: DeliveryListRouting
   private let interactor: DeliveryListInteracting
+  private let mapper: DeliveryViewModelMapping
 
   weak var view: DeliveryListView?
 
   init(
     router: DeliveryListRouting,
-    interactor: DeliveryListInteracting
+    interactor: DeliveryListInteracting,
+    mapper: DeliveryViewModelMapping
   ) {
     self.router = router
     self.interactor = interactor
+    self.mapper = mapper
   }
 }
 
@@ -35,7 +38,8 @@ extension DeliveryListPresenter: DeliveryListPresenting {
     interactor.fetchDeliveries(offset: 0) { [weak self] result in
       switch result {
       case .success(let deliveries):
-        self?.view?.updateView(deliveries: deliveries)
+        let deliveriesViewModels = self?.mapper.map(deliveries: deliveries)
+        self?.view?.updateView(deliveries: deliveriesViewModels ?? [])
       case .failure(let error):
         self?.view?.showError(error: error)
       }
