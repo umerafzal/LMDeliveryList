@@ -6,11 +6,25 @@
 //
 
 import Foundation
+import UIKit
 
 protocol DeliveryListRouting {
-
+  func navigateToDeliveryDetailsScreen(delivery: Delivery)
 }
 
-final class DeliveryListRouter: DeliveryListRouting {
+final class DeliveryListRouter {
+  private let deliveryDetailsBuilder: DeliveryDetailsBuilding
 
+  weak var viewController: UIViewController?
+
+  init(deliveryDetailsBuilder: DeliveryDetailsBuilding) {
+    self.deliveryDetailsBuilder = deliveryDetailsBuilder
+  }
+}
+
+extension DeliveryListRouter: DeliveryListRouting {
+  func navigateToDeliveryDetailsScreen(delivery: Delivery) {
+    let vc = deliveryDetailsBuilder.buildDeliveryDetailsScreen(delivery: delivery)
+    viewController?.navigationController?.pushViewController(vc, animated: true)
+  }
 }

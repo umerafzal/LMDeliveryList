@@ -30,7 +30,7 @@ final class DeliveryDetailsPresenter {
 extension DeliveryDetailsPresenter: DeliveryDetailsPresenting {
   func onViewDidLoad() {
     let model = self.mapper.map(delivery: delivery)
-    view?.updateView(model: model)
+    view?.updateView(viewModel: model)
   }
 
   func onFavoriteButtonPressed() {
